@@ -29,6 +29,8 @@
     subtitlesToggle: document.getElementById("subtitles-toggle"),
     musicToggle: document.getElementById("music-toggle"),
     settingsMenu: document.getElementById("settings-menu"),
+    landingGuide: document.querySelector(".landing-guide"),
+    missionGuide: document.querySelector(".mission-guide"),
     factPanel: document.getElementById("fact-panel"),
     factTitle: document.getElementById("fact-title"),
     factDescription: document.getElementById("fact-description"),
@@ -48,6 +50,7 @@
     timer: null,
     audio: null,
     mode: "idle",
+    zipSpeaking: false,
     token: 0
   };
   const speech = window.speechSynthesis || null;
@@ -159,6 +162,7 @@
 
   function stopPlayback() {
     state.token += 1;
+    state.zipSpeaking = false;
     clearTimeout(state.timer);
     if (speech) speech.cancel();
     if (state.audio) {
@@ -175,6 +179,39 @@
   function selectedVoice() {
     const index = Number(elements.voiceSelect.value);
     return Number.isInteger(index) && state.voices[index] ? state.voices[index] : null;
+  }
+
+  function speakZip() {
+    const guide = state.started ? elements.missionGuide : elements.landingGuide;
+    const greeting = guide.querySelector(".guide-greeting");
+    const text = state.started
+      ? story.zipDialogue.chapters[state.chapter]
+      : story.zipDialogue.cover;
+    greeting.textContent = text;
+    guide.classList.add("is-introducing");
+    playSfx("beep");
+
+    if (!speech || state.zipSpeaking) return;
+    state.zipSpeaking = true;
+    const token = state.token;
+    const audio = state.playing && state.mode === "audio" ? state.audio : null;
+    if (audio) audio.pause();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    const voice = selectedVoice();
+    if (voice) utterance.voice = voice;
+    utterance.lang = voice ? voice.lang : "en-US";
+    utterance.pitch = 1.6;
+    utterance.rate = 1;
+    utterance.volume = state.muted ? 0 : state.volume;
+    function finishZip() {
+      state.zipSpeaking = false;
+      if (token !== state.token || !audio || !state.playing || state.mode !== "audio" || state.audio !== audio) return;
+      audio.play().catch(function () { startSpeech(token); });
+    }
+    utterance.onend = finishZip;
+    utterance.onerror = finishZip;
+    speech.speak(utterance);
   }
 
   function speakCurrentSentence(token) {
@@ -350,7 +387,7 @@
     playSfx(key.indexOf("star") !== -1 ? "twinkle" : "pop");
   }
 
-  document.querySelectorAll(".scene-art .clickable, .mission-guide").forEach(function (piece) {
+  document.querySelectorAll(".scene-art .clickable").forEach(function (piece) {
     piece.addEventListener("click", function () { showFact(piece.getAttribute("data-fact")); });
     piece.addEventListener("keydown", function (event) {
       if (event.key === "Enter" || event.key === " ") {
@@ -360,9 +397,13 @@
     });
   });
 
+  elements.missionGuide.addEventListener("click", function () {
+    speakZip();
+    showFact("guide");
+  });
   elements.startButton.addEventListener("click", beginPlayback);
-  document.querySelector(".landing-guide").addEventListener("click", function (event) {
-    event.currentTarget.classList.toggle("is-introducing");
+  elements.landingGuide.addEventListener("click", function () {
+    speakZip();
   });
   elements.playButton.addEventListener("click", function () {
     if (state.playing) pausePlayback();

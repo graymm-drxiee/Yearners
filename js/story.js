@@ -1,6 +1,16 @@
 window.ANF_STORY = {
   audioChapters: [],
   githubUrl: "https://github.com/PhaeCorp",
+  zipDialogue: {
+    cover: "Beep-boop! I'm Zip, your tiny robot guide. Ready for a Mars-sized adventure?",
+    chapters: [
+      "Beep-boop! Countdown time! Three, two, one—let's zoom toward Mars!",
+      "Seven months among the stars! I'm scanning ahead—Mars is getting closer!",
+      "Parachute open, airbags ready... bounce, bounce, touchdown! We made it!",
+      "Ramp down! Wheels rolling! Let's explore Mars like space detectives!",
+      "Mission complete! One little rover, one giant leap for Mars explorers!"
+    ]
+  },
   sources: {
     pathfinder: { label: "NASA Mars Pathfinder and Sojourner", url: "https://science.nasa.gov/mission/mars-pathfinder/" }
   },

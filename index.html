@@ -64,11 +64,14 @@
             <linearGradient id="marsGradient" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffad6e"/><stop offset="1" stop-color="#a63e44"/></linearGradient>
             <linearGradient id="spaceGradient" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#101525"/><stop offset="1" stop-color="#34243b"/></linearGradient>
             <radialGradient id="planetGlow"><stop stop-color="#ffbf78" stop-opacity=".45"/><stop offset="1" stop-color="#ffbf78" stop-opacity="0"/></radialGradient>
+            <clipPath id="marsClip"><circle cx="429" cy="375" r="218"/></clipPath>
           </defs>
           <circle cx="414" cy="359" r="290" fill="url(#planetGlow)"/>
           <circle cx="429" cy="375" r="218" fill="url(#marsGradient)"/>
-          <path d="M230 320q70-77 130-36t132-13q64-26 148 24v92q-87-23-142 16t-137-7q-72-38-131 6Z" fill="#c65b4c" opacity=".8"/>
-          <path d="M240 458q87-56 162-16t151-1q51-20 99 10v100H258Z" fill="#762f40" opacity=".48"/>
+          <g clip-path="url(#marsClip)">
+            <path d="M230 320q70-77 130-36t132-13q64-26 148 24v92q-87-23-142 16t-137-7q-72-38-131 6Z" fill="#c65b4c" opacity=".8"/>
+            <path d="M240 458q87-56 162-16t151-1q51-20 99 10v100H258Z" fill="#762f40" opacity=".48"/>
+          </g>
           <path d="M211 501q84-47 146-8l48 35-170 27Zm328-26 50-42 57 9 44 43-151 30Z" fill="#753946"/>
           <circle cx="160" cy="180" r="2" fill="#fff"/><circle cx="623" cy="140" r="2" fill="#fff"/>
           <circle cx="684" cy="286" r="3" fill="#ffd880"/><circle cx="278" cy="119" r="2" fill="#fff"/>
@@ -102,7 +105,7 @@
             <circle cx="60" cy="24" r="5" fill="#f47b62"/><path d="M60 18V10m-9 0h18" stroke="#fffaf0" stroke-width="4" stroke-linecap="round"/>
             <circle cx="60" cy="113" r="4" fill="#f47b62"/>
           </svg>
-          <span class="guide-greeting">Hi, friend! I'm Zip, your mission buddy!</span>
+          <span class="guide-greeting" aria-live="polite" aria-atomic="true">Hi, friend! I'm Zip, your mission buddy!</span>
         </button>
       </div>
       <div class="landing-bottom"><span>AN UNOFFICIAL KIDS’ STORY INSPIRED BY NASA MISSIONS</span></div>
@@ -308,7 +311,7 @@
               <circle cx="60" cy="24" r="5" fill="#f47b62"/><path d="M60 18V10m-9 0h18" stroke="#fffaf0" stroke-width="4" stroke-linecap="round"/>
               <circle cx="60" cy="113" r="4" fill="#f47b62"/>
             </svg>
-            <span class="guide-greeting">I’ll help you explore!</span>
+            <span class="guide-greeting" aria-live="polite" aria-atomic="true">I’ll help you explore!</span>
           </button>
           <div class="fact-popover" id="fact-panel" aria-live="polite" aria-atomic="true" hidden>
             <button type="button" class="fact-close" id="fact-close" aria-label="Close fact">×</button>

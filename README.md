@@ -26,7 +26,7 @@ The story is told across five chapters:
 4. **Ramp down, rover out!** — Sojourner rolls down the ramp and begins exploring Mars.
 5. **A little rover, a big story** — Pathfinder's final data transmission and Sojourner's legacy.
 
-Readers can move between chapters, listen to narration, follow sentence-by-sentence subtitles, and select illustrated spacecraft and landmarks to open cited mission facts. A friendly flying robot named Zip guides the story; Zip is fictional. Smooth scene animations follow the narrated events, and the experience respects reduced-motion preferences.
+Readers can move between chapters, listen to narration, follow sentence-by-sentence subtitles, and select illustrated spacecraft and landmarks to open cited mission facts. A friendly flying robot named Zip guides the story; Zip is fictional. Tap Zip to hear a short, chapter-specific greeting in a higher-pitched synthetic voice. Zip's voice uses the browser's available speech voice, so its sound may vary by device. Smooth scene animations follow the narrated events, and the experience respects reduced-motion preferences.
 
 ### 💻 Tech Stack
 
