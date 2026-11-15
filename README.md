@@ -8,7 +8,8 @@ The project brings mission history to life through an illustrated, chapter-based
 
 ## Project Demonstration
 
-No public demo URL is configured yet. Open index.html locally to explore the story.
+- **Official NASA Submission Folder:** [Google Drive Link](https://drive.google.com/drive/folders/19rGuzJYQkfJZnN4c3ZmZEnR5TKr6YjY9?usp=sharing)[cite: 1]
+- **Demo Video:** [Canva Link / Google Drive Files](https://drive.google.com/drive/folders/1juoPyGUmfbAkWA72tPcKENAOIIE70U6u?usp=drive_link)[cite: 1]
 
 ## Project
 
