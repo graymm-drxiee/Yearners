@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" role="img" aria-labelledby="title desc">
+  <title id="title">Moon and Mars rover friends</title>
+  <desc id="desc">A Moon lander and rover share a pink paper-cut sky with a small Mars rover.</desc>
+  <path fill="#f58eb0" d="M0 0h800v310q-420-40-800 8z"/>
+  <circle cx="660" cy="82" r="38" fill="#ffde67"/>
+  <circle cx="185" cy="155" r="93" fill="#eee7d2" stroke="#fffaf0" stroke-width="9"/>
+  <circle cx="150" cy="132" r="13" fill="#d2c7b5"/><circle cx="212" cy="190" r="19" fill="#d2c7b5"/>
+  <path fill="#c27391" d="M0 290q210-48 390 0t410-12v152H0z"/>
+  <g stroke="#fffaf0" stroke-width="8" stroke-linejoin="round">
+    <path fill="#ffe176" d="m128 204 23-42 49-2 26 39-9 27-80 2z"/>
+    <path fill="#ffe276" d="m325 258 18-22 53-2 20 23-7 16h-81z"/>
+    <path fill="#c5e863" d="m525 290 14-29 54-3 22 24-8 35-68 5z"/>
+  </g>
+  <path d="m145 224-17 42m85-41 19 40m100-6v22m55-22 1 22m-43-48v-27m39 27v-27m-45 0h51" fill="none" stroke="#674b72" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="342" cy="281" r="11" fill="#563f5e"/><circle cx="399" cy="281" r="11" fill="#563f5e"/>
+</svg>

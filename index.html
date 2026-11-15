@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff0d6">
+  <title>Sojourner and a Little Red World</title>
+  <link rel="icon" type="image/svg+xml" href="assets/yyyy.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/story.js"></script>
+  <script defer src="js/sfx.js"></script>
+  <script defer src="js/player.js"></script>
+</head>
+<body>
+  <div class="starfield" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Yearners presents Sojourner's Journey">
+      <img class="brand-logo" src="assets/yyyy.svg" alt="">
+      <span class="brand-name">YEARNERS</span>
+    </a>
+    <header class="topbar">
+    <a class="brand" href="#" aria-label="Yearners presents Sojourner's Journey">
+      <img class="brand-logo" src="assets/yyyy.svg" alt="">
+      <span class="brand-name">YEARNERS</span>
+    </a>
+    <div class="topbar-right">
+      <a class="github-link" href="https://github.com/graymm-drxiee/Yearners" target="_blank" rel="noreferrer" aria-label="Visit Yearners on GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .9a11.2 11.2 0 0 0-3.54 21.82c.56.1.76-.24.76-.54v-2.1c-3.1.68-3.76-1.32-3.76-1.32-.5-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.12.08 1.72 1.15 1.72 1.15 1 .1.87 1.94 3.1 1.38.1-.72.4-1.2.7-1.48-2.48-.28-5.08-1.24-5.08-5.52 0-1.22.44-2.22 1.16-3-.12-.28-.5-1.42.1-2.96 0 0 .95-.3 3.08 1.15a10.7 10.7 0 0 1 5.61 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.23 2.68.12 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.6 5.23-5.1 5.5.4.34.75 1 .75 2.02v3c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .9Z"/></svg>
+        <span>Yearners on GitHub</span>
+      </a>
+      <details class="settings-menu" id="settings-menu">
+        <summary aria-label="Open preferences" title="Preferences">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.3a3.7 3.7 0 1 0 0 7.4 3.7 3.7 0 0 0 0-7.4Zm9 4.7a9.5 9.5 0 0 0-.1-1.8l1.5-1.2-1.5-2.7-1.8.7a8.6 8.6 0 0 0-1.6-.9L17.2 5h-3.1l-.5 1.9a8.6 8.6 0 0 0-1.8 0L11.2 5H8.1l-.4 2.1a8.6 8.6 0 0 0-1.6.9l-1.8-.7-1.5 2.7 1.5 1.2a9.5 9.5 0 0 0 0 1.8l-1.5 1.2 1.5 2.7 1.8-.7a8.6 8.6 0 0 0 1.6.9l.4 2.1h3.1l.5-1.9a8.6 8.6 0 0 0 1.8 0l.5 1.9h3.1l.4-2.1a8.6 8.6 0 0 0 1.6-.9l1.8.7 1.5-2.7-1.5-1.2Z"/></svg>
+        </summary>
+        <div class="settings-panel">
+          <div class="settings-title"><span>Story settings</span><span class="live-dot"></span></div>
+          <label class="setting-row" for="voice-select"><span>Narrator voice</span><select id="voice-select" aria-label="Choose narrator voice"><option value="">Friendly voice</option></select></label>
+          <label class="setting-row" for="volume-slider"><span>Volume</span><input id="volume-slider" type="range" min="0" max="1" step="0.05" value="0.8"></label>
+          <label class="setting-switch" for="subtitles-toggle"><span>Subtitles</span><input id="subtitles-toggle" type="checkbox" checked><span class="switch-ui" aria-hidden="true"></span></label>
+          <label class="setting-switch" for="music-toggle"><span>Background music</span><input id="music-toggle" type="checkbox" checked><span class="switch-ui" aria-hidden="true"></span></label>
+          <button class="setting-mute" id="mute-button" type="button" aria-label="Mute sounds"><span id="mute-icon" aria-hidden="true">♫</span><span id="mute-label">Sound on</span></button>
+          <p>Preferences fold away with the gear.</p>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <main>
+    <section class="landing-screen" id="start-cover" aria-labelledby="landing-title">
+      <div class="landing-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> A MARS MISSION STORY · 1996—1997</p>
+        <h1 id="landing-title"><span class="title-first-line">Sojourner</span><span>and a Little</span><span class="title-last-line">Red World</span></h1>
+        <p class="landing-description">Hi, friend! I’m Sojourner, a little rover riding to Mars inside Pathfinder. Come along for my real-life journey to a brand-new red world!</p>
+        <button id="start-button" class="launch-button" type="button"><span>Begin my journey</span><span class="launch-arrow" aria-hidden="true">↗</span></button>
+        <div class="mission-stamp"><span class="stamp-icon" aria-hidden="true">✦</span><span><strong>THE FIRST ROVER TO EXPLORE MARS</strong><small>Mission: Mars Pathfinder</small></span></div>
+      </div>
+      <div class="landing-visual" aria-hidden="true">
+        <div class="planet-glow"></div>
+        <svg class="landing-art" viewBox="0 0 800 720">
+          <defs>
+            <linearGradient id="marsGradient" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffad6e"/><stop offset="1" stop-color="#a63e44"/></linearGradient>
+            <linearGradient id="spaceGradient" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#101525"/><stop offset="1" stop-color="#34243b"/></linearGradient>
+            <radialGradient id="planetGlow"><stop stop-color="#ffbf78" stop-opacity=".45"/><stop offset="1" stop-color="#ffbf78" stop-opacity="0"/></radialGradient>
+          </defs>
+          <circle cx="414" cy="359" r="290" fill="url(#planetGlow)"/>
+          <circle cx="429" cy="375" r="218" fill="url(#marsGradient)"/>
+          <path d="M230 320q70-77 130-36t132-13q64-26 148 24v92q-87-23-142 16t-137-7q-72-38-131 6Z" fill="#c65b4c" opacity=".8"/>
+          <path d="M240 458q87-56 162-16t151-1q51-20 99 10v100H258Z" fill="#762f40" opacity=".48"/>
+          <path d="M211 501q84-47 146-8l48 35-170 27Zm328-26 50-42 57 9 44 43-151 30Z" fill="#753946"/>
+          <circle cx="160" cy="180" r="2" fill="#fff"/><circle cx="623" cy="140" r="2" fill="#fff"/>
+          <circle cx="684" cy="286" r="3" fill="#ffd880"/><circle cx="278" cy="119" r="2" fill="#fff"/>
+          <path d="M118 360q104-176 281-157" fill="none" stroke="#f7cf9f" stroke-opacity=".35" stroke-width="2" stroke-dasharray="3 12"/>
+          <g class="hero-rover">
+            <path d="m349 371 24-54 95-9 43 48-16 67-108 5Z" fill="#d8c792" stroke="#746744" stroke-width="5"/>
+            <path d="m373 375 19-36 66-8 31 32-13 48-82 4Z" fill="#a2a57f"/>
+            <path d="m401 333-8-56 40 22 35-32 5 63" fill="#526e72" stroke="#d8c792" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M396 284 430 245l41 18 2 47" fill="#65878a" stroke="#d8c792" stroke-width="5"/>
+            <path d="M382 389 340 422v19l25 25 34-8m79-78 36 32v20l-13 28-36-6" fill="none" stroke="#544b3e" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="340" cy="441" r="20" fill="#382f31" stroke="#d8c792" stroke-width="5"/>
+            <circle cx="514" cy="432" r="20" fill="#382f31" stroke="#d8c792" stroke-width="5"/>
+            <circle cx="365" cy="466" r="17" fill="#382f31" stroke="#d8c792" stroke-width="5"/>
+            <circle cx="501" cy="460" r="17" fill="#382f31" stroke="#d8c792" stroke-width="5"/>
+            <circle cx="340" cy="441" r="5" fill="#b9aa7e"/><circle cx="514" cy="432" r="5" fill="#b9aa7e"/>
+            <circle cx="365" cy="466" r="4" fill="#b9aa7e"/><circle cx="501" cy="460" r="4" fill="#b9aa7e"/>
+            <path d="m425 320 8-16 8 16" fill="none" stroke="#f4d45f" stroke-width="4"/>
+          </g>
+          <path d="M0 595q98-56 190-24t178-10q104-30 215 26t217 2v131H0Z" fill="#a84a46"/>
+          <path d="M0 646q122-45 226-6t189-4q107-17 197 24t188-1v61H0Z" fill="#783942"/>
+        </svg>
+        <div class="orbit-label"><span></span> MARS · ARES VALLIS</div>
+        <button class="flying-guide landing-guide" type="button" aria-label="Meet Zip, your friendly flying mission guide">
+          <svg viewBox="0 0 120 130" aria-hidden="true">
+            <path d="M37 39 15 24l7 31m55-16 27-16-9 37" fill="#9adbe0" stroke="#fffaf0" stroke-width="5" stroke-linejoin="round"/>
+            <path d="M29 61q-3-31 31-34 34 3 31 34v35H29Z" fill="#ffdb61" stroke="#fffaf0" stroke-width="6" stroke-linejoin="round"/>
+            <rect x="36" y="51" width="48" height="28" rx="13" fill="#465778"/>
+            <ellipse cx="50" cy="63" rx="4" ry="6" fill="#fff"/><ellipse cx="68" cy="63" rx="4" ry="6" fill="#fff"/>
+            <path d="M52 72q8 8 16 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+            <path d="M46 97 38 113m39-16 8 16" stroke="#fffaf0" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="60" cy="24" r="5" fill="#f47b62"/><path d="M60 18V10m-9 0h18" stroke="#fffaf0" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="60" cy="113" r="4" fill="#f47b62"/>
+          </svg>
+          <span class="guide-greeting">Hi, friend! I'm Zip, your mission buddy!</span>
+        </button>
+      </div>
+      <div class="landing-bottom"><span>AN UNOFFICIAL KIDS’ STORY INSPIRED BY NASA MISSIONS</span></div>
+    </section>
+
+    <section class="story-screen" id="story-screen" hidden aria-label="Sojourner's journey">
+      <div class="story-topline">
+        <div class="chapter-label"><span id="chapter-kicker">MISSION LOG 01</span><span class="chapter-divider">/</span><span id="chapter-counter">CHAPTER 1 OF 5</span></div>
+        <h2 id="chapter-title">Launch day!</h2>
+      </div>
+      <div class="mission-display">
+        <div class="mission-sky" id="mission-sky" data-mood="launch">
+          <div class="mission-stars" aria-hidden="true"></div>
+          <div class="scene scene-hello is-active" data-scene="0">
+            <svg class="scene-art" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet" role="group" aria-labelledby="scene1-title scene1-desc">
+              <title id="scene1-title">Pathfinder launches from Earth</title>
+              <desc id="scene1-desc">Earth and a Delta II rocket carrying Mars Pathfinder rise into space. Click objects to learn mission facts.</desc>
+              <g class="earth-world">
+                <circle cx="170" cy="187" r="102" fill="#315983"/>
+                <path d="M103 151q29-40 70-18l8 24-29 17-11 38-41-11-18-29Zm79 72 27-20 31 17-7 33-36 22Z" fill="#75aa79"/>
+                <g class="clickable" data-fact="earth" role="button" tabindex="0" aria-label="Earth: click to see where Sojourner's team lives">
+                  <circle cx="171" cy="189" r="108" fill="transparent"/>
+                </g>
+              </g>
+              <path class="earth-horizon" d="M0 576Q148 510 285 562t287-12q172-60 338 23t290-3v130H0Z" fill="#202c43"/>
+              <g class="clickable rocket-lift" data-fact="launch" role="button" tabindex="0" aria-label="Launch: learn when Pathfinder began its journey">
+                <path class="rocket-exhaust" d="M563 485q13 28 31 55 18-27 31-55-14 8-31 5-17 4-31-5Z" fill="#ffb452" stroke="#f15c4b" stroke-width="8"/>
+                <path class="rocket-flame-core" d="M581 487q4 21 13 34 10-15 13-34-12 8-26 0Z" fill="#fff1a8"/>
+                <path d="M516 451 594 203l76 248-76 62Z" fill="#ded8ca"/>
+                <path d="m594 205 40 165-40-18Z" fill="#bcb5a7"/>
+                <path d="M562 363h63v87h-63z" fill="#d27c49"/>
+                <path d="m563 423-59 92 59-22m62-69 59 92-59-22" fill="#d94b42"/>
+                <path d="m564 461 30 30 30-30-10 112h-40Z" fill="#ffb452"/>
+                <path d="M543 291h102" stroke="#f1eee8" stroke-width="8"/>
+                <path d="M695 266q112-86 237-41" fill="none" stroke="#8eb9cc" stroke-opacity=".7" stroke-width="3" stroke-dasharray="6 14"/>
+              </g>
+              <g class="clickable" data-fact="pathfinder" role="button" tabindex="0" aria-label="Pathfinder spacecraft: click for mission details">
+                <circle cx="790" cy="179" r="36" fill="#e2bb67"/>
+                <path d="m751 174-92-54 6 79Zm78 0 104-50-8 83Z" fill="#5c86a3" stroke="#a9c5d0" stroke-width="5"/>
+                <path d="m767 179 28-25 29 24-7 43h-42Z" fill="#c89d58"/>
+                <path d="m769 218-48 54m103-54 50 54" stroke="#b09b71" stroke-width="6"/>
+              </g>
+            </svg>
+          </div>
+          <div class="scene scene-adventure" data-scene="1" hidden>
+            <svg class="scene-art" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet" role="group" aria-labelledby="scene2-title scene2-desc">
+              <title id="scene2-title">Pathfinder travels through space to Mars</title>
+              <desc id="scene2-desc">Pathfinder cruises past stars as Mars grows closer. Click the spacecraft or Mars to explore.</desc>
+              <g class="mars-world">
+                <circle cx="923" cy="306" r="206" fill="#b94d46"/>
+                <path d="M754 280q89-94 184-51t190-24v85q-101-2-163 42t-201-6Z" fill="#e68b58"/>
+                <path d="M782 387q81-45 158-4t168-10v91H779Z" fill="#7e3447"/>
+              </g>
+              <circle cx="141" cy="137" r="3" fill="#fff"/><circle cx="274" cy="221" r="2" fill="#fff"/>
+              <circle cx="603" cy="155" r="3" fill="#ffd98b"/><circle cx="502" cy="439" r="2" fill="#fff"/>
+              <circle cx="1078" cy="144" r="3" fill="#fff"/><circle cx="345" cy="543" r="3" fill="#ffd98b"/>
+              <path d="M155 364C360 191 573 215 746 292" fill="none" stroke="#f5d69c" stroke-opacity=".54" stroke-width="3" stroke-dasharray="4 14"/>
+              <g class="streak-stars" aria-hidden="true">
+                <path d="M105 189h44m150 186h58m285-287h42m147 342h46M350 91h28" fill="none" stroke="#fff4cc" stroke-width="3" stroke-linecap="round"/>
+              </g>
+              <g class="clickable spacecraft-cruise" data-fact="pathfinder" role="button" tabindex="0" aria-label="Pathfinder spacecraft: click for mission details">
+                <circle cx="468" cy="282" r="28" fill="#e6c470"/>
+                <path d="m438 280-124-61 7 92Zm61-1 116-62-4 93Z" fill="#467496" stroke="#b9d1db" stroke-width="5"/>
+                <path d="m449 287 20-20 25 18-6 39h-38Z" fill="#c8874e"/>
+                <path d="m453 324-32 38m70-39 38 38" stroke="#e6c470" stroke-width="5"/>
+              </g>
+              <g class="clickable" data-fact="mars" role="button" tabindex="0" aria-label="Mars: click to learn about the landing site">
+                <circle cx="923" cy="306" r="210" fill="transparent"/>
+              </g>
+            </svg>
+          </div>
+          <div class="scene scene-quiet" data-scene="2" hidden>
+            <svg class="scene-art" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet" role="group" aria-labelledby="scene3-title scene3-desc">
+              <title id="scene3-title">Pathfinder makes a bouncing landing on Mars</title>
+              <desc id="scene3-desc">A parachute and protective airbags help Pathfinder reach the rocky surface at Ares Vallis. Click the parachute or landing craft.</desc>
+              <path d="M0 0h1200v386Q920 340 627 391T0 370Z" fill="#d77d59"/>
+              <path d="M0 345q174-70 360-10t356-8q214-76 484-2v375H0Z" fill="#a94945"/>
+              <path d="M0 503q228-96 412-11t377-18q171-63 411-1v227H0Z" fill="#713747"/>
+              <circle cx="927" cy="103" r="53" fill="#f3bf80" opacity=".84"/>
+              <g class="clickable" data-fact="parachute" role="button" tabindex="0" aria-label="Parachute: learn how Pathfinder slowed down">
+                <path d="M421 109a196 155 0 0 1 392 0Z" fill="#e5d7bd" stroke="#f5ead6" stroke-width="9"/>
+                <path d="M617 109 461 251m156-142 0 142m0-142 156 142m-156-142 98 142m-98-142-98 142" stroke="#936a5f" stroke-width="4"/>
+                <path d="M586 252h61l-8 72h-46Z" fill="#d0a25d"/>
+              </g>
+              <g class="clickable landing-bounce" data-fact="airbags" role="button" tabindex="0" aria-label="Airbags: click to learn about Pathfinder's bouncy landing">
+                <circle cx="548" cy="348" r="57" fill="#e5d7bd"/><circle cx="616" cy="337" r="58" fill="#f1e4ce"/>
+                <circle cx="684" cy="348" r="56" fill="#e5d7bd"/><circle cx="581" cy="399" r="54" fill="#efe2c9"/>
+                <circle cx="653" cy="399" r="54" fill="#e3d1b4"/>
+                <path d="m601 333 31-22 29 22-4 44h-53Z" fill="#c98f50"/>
+                <path d="m616 367-51 64m94-63 52 60" stroke="#514643" stroke-width="9" stroke-linecap="round"/>
+              </g>
+              <g class="clickable" data-fact="landing" role="button" tabindex="0" aria-label="Ares Vallis: learn where Pathfinder landed">
+                <path d="m86 476 44-68 58 16 31 63-17 31H98Zm873-16 40-57 67 22 28 53-18 25h-93Z" fill="#643844"/>
+                <circle cx="282" cy="542" r="14" fill="#e4a16d"/><circle cx="342" cy="587" r="8" fill="#d5825d"/>
+                <circle cx="901" cy="543" r="11" fill="#e4a16d"/>
+              </g>
+            </svg>
+          </div>
+          <div class="scene scene-parachute" data-scene="5" hidden>
+            <svg class="scene-art" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet" role="group" aria-labelledby="scene6-title scene6-desc">
+              <title id="scene6-title">A parachute and airbags bring Pathfinder safely to Mars</title>
+              <desc id="scene6-desc">Pathfinder descends beneath a parachute toward the red ground, cushioned by airbags. Click the parachute, spacecraft, or airbags to learn how the landing worked.</desc>
+              <path d="M0 0h1200v390q-230-48-485 2T0 370Z" fill="#c67762"/>
+              <circle cx="954" cy="111" r="52" fill="#f3c886" opacity=".8"/>
+              <path d="M0 368q190-74 375-11t375-3q219-70 450 3v343H0Z" fill="#aa514b"/>
+              <path d="M0 535q203-93 389-17t403-11q208-74 408 5v188H0Z" fill="#743948"/>
+              <path d="m93 489 48-57 60 15 34 56-23 32H107Zm892-22 40-59 70 17 42 57-23 30h-92Z" fill="#633845"/>
+              <g class="landing-craft">
+              <g class="clickable parachute-drift" data-fact="parachute" role="button" tabindex="0" aria-label="Parachute: click to see how Pathfinder slowed down">
+                <path d="M395 167a208 154 0 0 1 416 0Z" fill="#efe6d5" stroke="#fff9ed" stroke-width="9"/>
+                <path d="M603 168 440 321m163-153v153m0-153 164 153m-164-153 103 153m-103-153L500 321" fill="none" stroke="#8c665c" stroke-width="4"/>
+                <path d="m570 321 66 0-8 61h-50Z" fill="#c89456"/>
+              </g>
+              <g class="clickable lander-drop" data-fact="pathfinder" role="button" tabindex="0" aria-label="Pathfinder: click to learn about the lander">
+                <path d="m569 385 34-28 37 25-6 55h-60Z" fill="#c98d4f" stroke="#f0ddba" stroke-width="6"/>
+                <path d="m575 434-52 60m110-60 53 60" fill="none" stroke="#554640" stroke-width="8" stroke-linecap="round"/>
+              </g>
+              <g class="clickable landing-airbags" data-fact="airbags" role="button" tabindex="0" aria-label="Airbags: click to learn about Pathfinder's cushioned landing">
+                <circle cx="535" cy="456" r="43" fill="#eee2ce" stroke="#fff8eb" stroke-width="7"/>
+                <circle cx="585" cy="449" r="46" fill="#e1d4bd" stroke="#fff8eb" stroke-width="7"/>
+                <circle cx="638" cy="456" r="43" fill="#eee2ce" stroke="#fff8eb" stroke-width="7"/>
+                <circle cx="560" cy="495" r="39" fill="#e3d6c1" stroke="#fff8eb" stroke-width="7"/>
+                <circle cx="612" cy="495" r="39" fill="#eee2ce" stroke="#fff8eb" stroke-width="7"/>
+              </g>
+              </g>
+            </svg>
+          </div>
+          <div class="scene scene-friends" data-scene="3" hidden>
+            <svg class="scene-art" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet" role="group" aria-labelledby="scene4-title scene4-desc">
+              <title id="scene4-title">Sojourner rolls down Pathfinder's ramp</title>
+              <desc id="scene4-desc">The lander lowers a ramp and Sojourner rolls out to study rocks at Ares Vallis. Click the rover, ramp, or rock.</desc>
+              <path d="M0 0h1200v400q-230-70-500-5T0 383Z" fill="#e89c69"/>
+              <circle cx="986" cy="137" r="56" fill="#f6ce85"/>
+              <path d="M0 360q198-79 378-20t399 0q198-70 423 0v360H0Z" fill="#b85248"/>
+              <path d="M0 516q190-88 371-18t390-14q229-71 439 7v209H0Z" fill="#833c47"/>
+              <g class="clickable" data-fact="pathfinder" role="button" tabindex="0" aria-label="Pathfinder lander: click to meet Sojourner's companion">
+                <path d="m219 260 65-68 127 4 63 75-16 117-102 26-121-37Z" fill="#d9c690" stroke="#78694c" stroke-width="8"/>
+                <path d="m254 270 70-49 92 19 27 68-53 53-106-14Z" fill="#ad8153"/>
+                <path d="m273 244-1-105 70 40 66-53 8 111" fill="#4d7882" stroke="#d9c690" stroke-width="8"/>
+                <path d="m243 346-58 94m299-100 61 88" stroke="#645941" stroke-width="13" stroke-linecap="round"/>
+                <path d="M398 370 579 511" stroke="#d9c690" stroke-width="23" stroke-linecap="round"/>
+                <path d="M408 393 552 506" stroke="#876f4c" stroke-width="7" stroke-dasharray="13 12"/>
+              </g>
+              <g class="clickable rover rover-roll" data-fact="sojourner" role="button" tabindex="0" aria-label="Sojourner: click to learn about the first Mars rover">
+                <path d="m569 463 22-57 103-12 48 53-15 76-119 9Z" fill="#d7be72" stroke="#655d45" stroke-width="7"/>
+                <path d="m598 459 17-38 70-7 35 39-12 50-89 7Z" fill="#a9a27a"/>
+                <path d="m621 415-2-71 48 31 42-39 2 73" fill="#58777b" stroke="#d7be72" stroke-width="6"/>
+                <path d="M602 488 566 522v18m0-18 47 7v17m0-17 67-7v18m0-18 32-8v8" fill="none" stroke="#554b3b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle class="rover-wheel" cx="566" cy="540" r="19" fill="#302b2a" stroke="#c6b478" stroke-width="6"/>
+                <circle class="rover-wheel" cx="712" cy="533" r="19" fill="#302b2a" stroke="#c6b478" stroke-width="6"/>
+                <circle class="rover-wheel" cx="613" cy="546" r="17" fill="#302b2a" stroke="#c6b478" stroke-width="6"/>
+                <circle class="rover-wheel" cx="680" cy="540" r="17" fill="#302b2a" stroke="#c6b478" stroke-width="6"/>
+                <circle cx="566" cy="540" r="5" fill="#c6b478"/><circle cx="712" cy="533" r="5" fill="#c6b478"/>
+                <circle cx="613" cy="546" r="4" fill="#c6b478"/><circle cx="680" cy="540" r="4" fill="#c6b478"/>
+              </g>
+              <g class="clickable" data-fact="rocks" role="button" tabindex="0" aria-label="Mars rocks: click to learn what Sojourner studied">
+                <path d="m825 457 45-56 61 7 45 67-20 45-111 2Z" fill="#673b45"/>
+                <path d="m850 456 23-32 30 1 26 41-15 23-55 0Z" fill="#d4835e"/>
+              </g>
+            </svg>
+          </div>
+          <div class="scene scene-orbit" data-scene="4" hidden>
+            <svg class="scene-art" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet" role="group" aria-labelledby="scene5-title scene5-desc">
+              <title id="scene5-title">Sojourner's mission leaves clues for Earth</title>
+              <desc id="scene5-desc">Sojourner studies a rock while a gentle line links the rover to the team on Earth. Click the rover or signal.</desc>
+              <path d="M0 0h1200v390q-240-67-480-3T0 370Z" fill="#9e6671"/>
+              <circle cx="1000" cy="123" r="63" fill="#d6e5df"/>
+              <path d="M0 355q177-81 365-10t373-3q232-72 462 1v357H0Z" fill="#91434d"/>
+              <path d="M0 512q184-84 372-15t403-9q206-76 425 7v209H0Z" fill="#612f42"/>
+              <path d="M106 224q183-132 365 15t350-1q130-83 204-39" fill="none" stroke="#dfcfaa" stroke-opacity=".57" stroke-width="3" stroke-dasharray="7 15"/>
+              <g class="clickable" data-fact="signal" role="button" tabindex="0" aria-label="Radio signal: click to learn how Sojourner talked with Earth">
+                <path d="M745 235q55-55 111 0m-85 29q29-30 58 0m-29 25h2" fill="none" stroke="#f4d58c" stroke-width="7" stroke-linecap="round"/>
+                <path d="M800 252q58-59 115 0m-86 27q29-29 57 0" fill="none" stroke="#f4d58c" stroke-opacity=".6" stroke-width="4" stroke-linecap="round"/>
+              </g>
+              <g class="clickable rover rover-roll" data-fact="sojourner" role="button" tabindex="0" aria-label="Sojourner: click to remember my Mars adventure">
+                <path d="m448 424 22-57 103-12 48 53-15 76-119 9Z" fill="#d7be72" stroke="#655d45" stroke-width="7"/>
+                <path d="m477 420 17-38 70-7 35 39-12 50-89 7Z" fill="#a9a27a"/>
+                <path d="m499 376-2-71 48 31 42-39 2 73" fill="#58777b" stroke="#d7be72" stroke-width="6"/>
+                <path d="M478 474 445 494v7l0 0m105-28 41 15v6m-146-20 132-4" fill="none" stroke="#554b3b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle class="rover-wheel" cx="445" cy="501" r="19" fill="#302b2a" stroke="#c6b478" stroke-width="6"/>
+                <circle class="rover-wheel" cx="591" cy="494" r="19" fill="#302b2a" stroke="#c6b478" stroke-width="6"/>
+                <circle cx="445" cy="501" r="5" fill="#c6b478"/><circle cx="591" cy="494" r="5" fill="#c6b478"/>
+              </g>
+              <g class="clickable" data-fact="rocks" role="button" tabindex="0" aria-label="Rock clues: click to learn what Sojourner discovered">
+                <path d="m665 436 47-61 61 9 40 65-23 45-111-1Z" fill="#5e3643"/>
+                <path d="m696 432 21-33 33 4 24 42-13 22h-55Z" fill="#d1825e"/>
+              </g>
+              <g class="apxs-arm" aria-hidden="true">
+                <path d="m572 424 44 14 43 4" fill="none" stroke="#554b3b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="661" cy="442" r="9" fill="#f3d87c" stroke="#554b3b" stroke-width="5"/>
+              </g>
+            </svg>
+          </div>
+          <div class="signal-line" aria-hidden="true"></div>
+          <button class="flying-guide mission-guide clickable" type="button" data-fact="guide" aria-label="Meet Zip, the story's imaginary flying guide">
+            <svg viewBox="0 0 120 130" aria-hidden="true">
+              <path d="M37 39 15 24l7 31m55-16 27-16-9 37" fill="#9adbe0" stroke="#fffaf0" stroke-width="5" stroke-linejoin="round"/>
+              <path d="M29 61q-3-31 31-34 34 3 31 34v35H29Z" fill="#ffdb61" stroke="#fffaf0" stroke-width="6" stroke-linejoin="round"/>
+              <rect x="36" y="51" width="48" height="28" rx="13" fill="#465778"/>
+              <ellipse cx="50" cy="63" rx="4" ry="6" fill="#fff"/><ellipse cx="68" cy="63" rx="4" ry="6" fill="#fff"/>
+              <path d="M52 72q8 8 16 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+              <path d="M46 97 38 113m39-16 8 16" stroke="#fffaf0" stroke-width="6" stroke-linecap="round"/>
+              <circle cx="60" cy="24" r="5" fill="#f47b62"/><path d="M60 18V10m-9 0h18" stroke="#fffaf0" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="60" cy="113" r="4" fill="#f47b62"/>
+            </svg>
+            <span class="guide-greeting">I’ll help you explore!</span>
+          </button>
+          <div class="fact-popover" id="fact-panel" aria-live="polite" aria-atomic="true" hidden>
+            <button type="button" class="fact-close" id="fact-close" aria-label="Close fact">×</button>
+            <p class="fact-label">MISSION NOTE</p>
+            <h3 id="fact-title">Curious?</h3>
+            <p id="fact-description">Select a spacecraft or landmark to explore a real mission detail.</p>
+            <a id="fact-source" href="https://science.nasa.gov/mission/mars-pathfinder/" target="_blank" rel="noreferrer">NASA source ↗</a>
+          </div>
+          <div class="speech-bubble" id="subtitle" aria-live="polite" aria-atomic="true">Select “Begin my journey” to join me.</div>
+          <div class="scene-date" id="scene-date">DECEMBER 4, 1996 · LIFTOFF</div>
+        </div>
+      </div>
+      <div class="story-footer">
+        <div class="chapter-progress" id="chapter-dots" role="group" aria-label="Choose a mission chapter"></div>
+        <div class="player-controls" aria-label="Mission story controls">
+          <button class="control-button text-control" id="back-button" type="button" aria-label="Previous chapter">← <span>Back</span></button>
+          <button class="control-button primary" id="play-button" type="button" aria-label="Play story" disabled><span id="play-icon" aria-hidden="true">▶</span><span id="play-label">Play</span></button>
+          <button class="control-button text-control" id="replay-button" type="button" aria-label="Replay this chapter">↻ <span>Replay</span></button>
+          <button class="control-button text-control" id="next-button" type="button" aria-label="Next chapter">Next <span aria-hidden="true">→</span></button>
+        </div>
+        <p class="tap-help">Tap the spacecraft, landmarks, or Zip for mission notes.</p>
+      </div>
+      <section class="end-card" id="end-card" hidden aria-labelledby="end-title">
+        <p class="eyebrow">MISSION LOG COMPLETE</p>
+        <h2 id="end-title">A little rover made a lasting mark.</h2>
+        <p>Sojourner’s messages went quiet, but its discoveries helped pave the way for the Mars explorers that followed.</p>
+        <a href="https://science.nasa.gov/mission/mars-pathfinder/" target="_blank" rel="noreferrer">Explore the NASA Pathfinder mission ↗</a>
+        <button class="control-button primary" id="play-again-button" type="button">Start the journey again ↻</button>
+      </section>
+    </section>
+  </main>
+  <footer class="site-footer">An unofficial kids' story inspired by NASA missions · <a href="https://github.com/graymm-drxiee/Yearners" target="_blank" rel="noreferrer">A Yearners project</a></footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" role="img" aria-labelledby="title desc">
+  <title id="title">Sojourner studies Mars rocks</title>
+  <desc id="desc">A little paper rover explores red rocks beneath a golden sky.</desc>
+  <path fill="#ffd46a" d="M0 0h800v310q-360-50-800 18z"/>
+  <circle cx="695" cy="83" r="38" fill="#ff9b61"/>
+  <path fill="#df754d" d="M0 280q210-45 380 5t420 0v145H0z"/>
+  <path fill="#ac4d52" d="M0 350q200-48 405 0t395-20v100H0z"/>
+  <g stroke="#fffaf0" stroke-width="8" stroke-linejoin="round">
+    <path fill="#7f4762" d="m73 280 23-45 44-5 32 31-8 50-67 13-27-15z"/>
+    <path fill="#ffdf61" d="m319 286 15-32 59-7 25 27-9 40-73 7z"/>
+    <path fill="#79cec1" d="m389 153 38-20 41 12 10 31-33 23-42-9z"/>
+  </g>
+  <circle cx="336" cy="320" r="11" fill="#563f5e"/><circle cx="392" cy="317" r="11" fill="#563f5e"/>
+  <path d="m442 187 15 37m-14-12-29 31" fill="none" stroke="#674b72" stroke-width="6" stroke-linecap="round"/>
+</svg>

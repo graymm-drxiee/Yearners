@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" role="img" aria-labelledby="title desc">
+  <title id="title">Sojourner meets Mars</title>
+  <desc id="desc">A paper-cut Mars landscape with Pathfinder, Sojourner, and a sunny orange sky.</desc>
+  <path fill="#ffb16d" d="M0 0h800v310q-230-35-400 4T0 310z"/>
+  <circle cx="680" cy="82" r="43" fill="#ffdc58" stroke="#fffaf0" stroke-width="8"/>
+  <path fill="#e9684b" d="M0 270q150-45 310 0t300-3 190-20v183H0z"/>
+  <path fill="#c94d44" d="M0 350q230-55 430 0t370-22v102H0z"/>
+  <g stroke="#fffaf0" stroke-width="8" stroke-linejoin="round">
+    <path fill="#f7dc86" d="m190 237 30-32 48 3 31 32-7 42-49 17-52-19z"/>
+    <path fill="#70c5c4" d="m218 207-3-39 29 16 26-23 4 44z"/>
+    <path fill="#ffdf61" d="m426 295 15-33 59-7 23 27-9 40-72 7z"/>
+  </g>
+  <circle cx="444" cy="328" r="11" fill="#563f5e"/><circle cx="500" cy="325" r="11" fill="#563f5e"/>
+  <circle cx="462" cy="276" r="4" fill="#fff9dc"/><circle cx="480" cy="280" r="4" fill="#674b72"/>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" role="img" aria-labelledby="title desc">
+  <title id="title">Sojourner remembered from space</title>
+  <desc id="desc">Mars, Earth, and an orbiting spacecraft appear in a bright purple paper-cut sky.</desc>
+  <path fill="#564a80" d="M0 0h800v430H0z"/>
+  <g fill="#fff4be"><circle cx="111" cy="77" r="5"/><circle cx="253" cy="119" r="4"/><circle cx="628" cy="87" r="6"/><circle cx="744" cy="186" r="4"/></g>
+  <circle cx="403" cy="283" r="119" fill="#ea754b" stroke="#fffaf0" stroke-width="9"/>
+  <path fill="#bc4e56" d="M304 270q43-28 92-8t112-5v42q-55 35-106 5t-98 9z"/>
+  <circle cx="160" cy="138" r="41" fill="#70c8d0" stroke="#fffaf0" stroke-width="8"/>
+  <g stroke="#fffaf0" stroke-width="5" stroke-linejoin="round">
+    <path fill="#79c9c4" d="m592 191 46-13 38 19-44 17z"/>
+    <path fill="#ffdf61" d="m383 283 12-24 46-3 18 21-7 28-57 4z"/>
+  </g>
+  <circle cx="394" cy="310" r="8" fill="#563f5e"/><circle cx="440" cy="307" r="8" fill="#563f5e"/>
+  <path d="M590 203q-57 42-112 66" fill="none" stroke="#fff2b1" stroke-width="3" stroke-dasharray="6 9"/>
+</svg>
