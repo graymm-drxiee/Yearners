@@ -154,10 +154,15 @@
             <svg class="scene-art" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet" role="group" aria-labelledby="scene2-title scene2-desc">
               <title id="scene2-title">Pathfinder travels through space to Mars</title>
               <desc id="scene2-desc">Pathfinder cruises past stars as Mars grows closer. Click the spacecraft or Mars to explore.</desc>
+              <defs>
+                <clipPath id="chapter2MarsClip"><circle cx="923" cy="306" r="206" /></clipPath>
+              </defs>
               <g class="mars-world">
                 <circle cx="923" cy="306" r="206" fill="#b94d46"/>
-                <path d="M754 280q89-94 184-51t190-24v85q-101-2-163 42t-201-6Z" fill="#e68b58"/>
-                <path d="M782 387q81-45 158-4t168-10v91H779Z" fill="#7e3447"/>
+                <g clip-path="url(#chapter2MarsClip)">
+                  <path d="M754 280q89-94 184-51t190-24v85q-101-2-163 42t-201-6Z" fill="#e68b58"/>
+                  <path d="M782 387q81-45 158-4t168-10v91H779Z" fill="#7e3447"/>
+                </g>
               </g>
               <circle cx="141" cy="137" r="3" fill="#fff"/><circle cx="274" cy="221" r="2" fill="#fff"/>
               <circle cx="603" cy="155" r="3" fill="#ffd98b"/><circle cx="502" cy="439" r="2" fill="#fff"/>
