@@ -1731,6 +1731,57 @@ body {
     0 16px 30px rgba(73, 53, 77, 0.17);
   color: #493a5b;
 }
+.thankyou-toast {
+  position: fixed;
+  z-index: 30;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(36, 30, 43, 0.42);
+  animation: thankyou-backdrop-in 0.2s ease-out;
+}
+.thankyou-toast[hidden] {
+  display: none;
+}
+.thankyou-toast-card {
+  width: min(560px, 100%);
+  padding: 34px 38px;
+  border: 4px solid #fff;
+  border-radius: 28px;
+  background: #fff8e7;
+  box-shadow: 0 8px 0 #d6aa70, 0 18px 40px rgba(38, 29, 48, 0.28);
+  color: #4b3961;
+  text-align: center;
+  animation: thankyou-card-in 0.28s ease-out both;
+}
+.thankyou-toast-message {
+  margin: 0;
+  font: 700 clamp(1.7rem, 5vw, 2.5rem) / 1.15 "Fredoka", sans-serif;
+}
+.thankyou-toast-warning {
+  margin: 14px 0 0;
+  color: #756477;
+  font: 500 1rem / 1.4 "Fredoka", sans-serif;
+}
+@keyframes thankyou-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes thankyou-card-in {
+  from {
+    opacity: 0.4;
+    transform: translateY(8px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 .end-card h2 {
   color: #4b3862;
   font-family: 'Baloo 2', sans-serif;

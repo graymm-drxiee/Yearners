@@ -37,6 +37,7 @@
     factSource: document.getElementById("fact-source"),
     factClose: document.getElementById("fact-close"),
     endCard: document.getElementById("end-card"),
+    thankYouToast: document.getElementById("thankyou-toast"),
     playAgainButton: document.getElementById("play-again-button")
   };
   const state = {
@@ -54,6 +55,22 @@
     token: 0
   };
   const speech = window.speechSynthesis || null;
+  let thankYouTimer = null;
+
+  function hideThankYouToast() {
+    clearTimeout(thankYouTimer);
+    thankYouTimer = null;
+    elements.thankYouToast.hidden = true;
+  }
+
+  function showThankYouToast() {
+    clearTimeout(thankYouTimer);
+    elements.thankYouToast.hidden = false;
+    thankYouTimer = window.setTimeout(function () {
+      elements.thankYouToast.hidden = true;
+      thankYouTimer = null;
+    }, 3000);
+  }
 
   function playSfx(name) {
     if (!state.muted && window.ANF_SFX) window.ANF_SFX.play(name, state.volume);
@@ -146,6 +163,7 @@
     clearTimeout(state.timer);
     if (state.chapter === chapters.length - 1) {
       elements.endCard.hidden = false;
+      showThankYouToast();
     }
     updateControls();
   }
@@ -415,12 +433,14 @@
   elements.nextButton.addEventListener("click", function () { navigateChapter(state.chapter + 1, state.playing); });
   elements.replayButton.addEventListener("click", beginPlayback);
   elements.playAgainButton.addEventListener("click", function () {
+    hideThankYouToast();
     elements.endCard.hidden = true;
     navigateChapter(0, true);
   });
   document.querySelectorAll(".brand").forEach(function (brand) {
     brand.addEventListener("click", function (event) {
       event.preventDefault();
+      hideThankYouToast();
       stopPlayback();
       state.chapter = 0;
       state.sentence = 0;
