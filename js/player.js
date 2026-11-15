@@ -290,7 +290,9 @@
       elements.startCover.classList.add("is-gone");
       document.body.classList.add("story-active");
       elements.storyScreen.hidden = false;
-      window.setTimeout(function () { elements.startCover.hidden = true; }, 560);
+      window.setTimeout(function () {
+        if (state.started) elements.startCover.hidden = true;
+      }, 560);
       elements.playButton.disabled = false;
     }
     stopPlayback();
@@ -415,6 +417,22 @@
   elements.playAgainButton.addEventListener("click", function () {
     elements.endCard.hidden = true;
     navigateChapter(0, true);
+  });
+  document.querySelectorAll(".brand").forEach(function (brand) {
+    brand.addEventListener("click", function (event) {
+      event.preventDefault();
+      stopPlayback();
+      state.chapter = 0;
+      state.sentence = 0;
+      state.started = false;
+      if (window.ANF_SFX) window.ANF_SFX.stopMusic();
+      renderChapter();
+      elements.storyScreen.hidden = true;
+      elements.endCard.hidden = true;
+      document.body.classList.remove("story-active", "story-paused");
+      elements.startCover.hidden = false;
+      elements.startCover.classList.remove("is-gone");
+    });
   });
   elements.factClose.addEventListener("click", function () { elements.factPanel.hidden = true; });
   elements.muteButton.addEventListener("click", function () {
