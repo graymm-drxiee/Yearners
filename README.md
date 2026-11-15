@@ -12,7 +12,11 @@ No public demo URL is configured yet. Open index.html locally to explore the sto
 
 ## Project
 
-This folder contains the complete project source. No separate hosted project URL is configured yet.
+> “We are the children of sunlight, the wanderers of red dust, the storytellers of distant worlds.”
+
+Created by **Yearners**, this repository contains the complete, self-contained source code for **Sojourner and the Little Red World**.
+
+- **Live Deployment:** [sojourner-five.vercel.app](https://sojourner-five.vercel.app/)
 
 ## Project Details
 
@@ -77,3 +81,9 @@ The looping background melody and sound effects are generated locally with the W
 GitHub Copilot
 DeepSeek
 Claude
+
+## License & Use
+
+- **Source Code:** Released under the [MIT License](https://opensource.org/licenses/MIT). You are free to use, modify, and distribute the HTML, CSS, and JavaScript code for educational and non-commercial or commercial projects with proper attribution to **Yearners**.
+- **Original Story, Illustrations & Branding:** The narrative text, fictional characters (including Zip), custom SVG artwork, and the **Yearners** logo are © 2026 Yearners. They may be shared freely for classroom and educational use, provided credit is given.
+- **NASA Mission Content:** Historical facts, mission timelines, and referenced records are courtesy of NASA and remain in the public domain.
